@@ -5,7 +5,7 @@ import Image from "next/image";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 const Nav = () => {
-  const isLoggedIn = false;
+  //const isLoggedIn = false;
   const { data: session } = useSession();
   const [providers, setProviders] = useState(null);
   const [toggleDropdown, setToggleDropdown] = useState(false);
