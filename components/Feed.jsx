@@ -62,7 +62,7 @@ const Feed = () => {
     console.log("result" + searchResult);
   };
   return (
-    <section className="feed">
+    <section className="feed min-h-content">
       <form className="relative w-full flex-center">
         <input
           type="text"
