@@ -1,15 +1,12 @@
 import NextAuth from "next-auth/next";
-import GoogleProivder from "next-auth/providers/google";
+import GoogleProvider from "next-auth/providers/google";
 
 import { connectToDB } from "@utils/database";
 import User from "@models/user";
 
 const handler = NextAuth({
-  session: {
-    strategy: "jwt",
-  },
   providers: [
-    GoogleProivder({
+    GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
@@ -26,9 +23,10 @@ const handler = NextAuth({
         await connectToDB();
 
         //check if a user is already exists
-        const userExsists = await User.findOne({ email: profile.email });
+        const userExists = await User.findOne({ email: profile.email });
         //if not create a new user
-        if (!userExsists) {
+        if (!userExists) {
+          console.log("Inside user creation logic");
           await User.create({
             email: profile.email,
             username: profile.name.replace(" ", "").toLowerCase(),
