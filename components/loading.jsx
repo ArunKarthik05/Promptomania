@@ -10,6 +10,7 @@ const Loading = () => {
         alt="loader"
         className="object-contain"
       />
+      Loading
     </div>
   );
 };

@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import PromptCard from "./PromptCard";
 
+import "./loading";
+
 const PromptCardList = ({ data, handleTagClick }) => {
   return (
     <div className="mt-16 prompt_layout">
@@ -36,7 +38,6 @@ const Feed = () => {
   const filterPrompts = (searchtext) => {
     // const regex = new RegExp(searchtext, "i");
     return posts.filter((post) => {
-      console.log(post.tag);
       return (
         searchText === post.creator.username ||
         searchtext === post.tag ||

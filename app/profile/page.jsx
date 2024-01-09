@@ -36,13 +36,14 @@ const MyProfile = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await fetch(`/api/users/${session?.user.id}/posts`);
+      const res = await fetch(`/api/users/${session?.user?.id}/posts`);
       const data = await res.json();
       setPosts(data);
     };
-    if (session?.user.id) fetchPosts();
-  }, []);
 
+    if (session?.user.id) fetchPosts();
+  }, [session?.user.id]);
+  console.log(session?.user?.id);
   return (
     <Profile
       name="My"

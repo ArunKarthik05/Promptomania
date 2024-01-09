@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import {  useState } from "react";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
@@ -21,7 +21,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
       setCopied("");
     }, 3000);
   };
-
+  console.log(post);
   return (
     <div className="prompt_card">
       <div className="flex justify-between items-start gap-5">
@@ -31,10 +31,10 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
         >
           <Image
             src={post.creator.image}
-            alt="user-image"
             width={40}
             height={40}
             className="rounded-full object-contain"
+            alt="user-image"
           />
           <div className="flex flex-col p-1">
             <h3 className="font-setoshi font-semibold text-gray-900">
