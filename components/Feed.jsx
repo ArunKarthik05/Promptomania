@@ -2,8 +2,6 @@
 import { useState, useEffect } from "react";
 import PromptCard from "./PromptCard";
 
-import "./loading";
-
 const PromptCardList = ({ data, handleTagClick }) => {
   return (
     <div className="mt-16 prompt_layout">
@@ -28,7 +26,7 @@ const Feed = () => {
     const data = await response.json();
 
     setPosts(data);
-    setSearchedResults([]);
+    // setSearchedResults([]);
   };
 
   useEffect(() => {
@@ -41,7 +39,7 @@ const Feed = () => {
       return (
         searchText === post.creator.username ||
         searchtext === post.tag ||
-        searchText === post.prompt
+        post.prompt.includes(searchtext)
       );
     });
   };
