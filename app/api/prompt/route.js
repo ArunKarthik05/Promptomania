@@ -16,7 +16,8 @@ export const GET = async (req) => {
         "Expires": "0",
         "Surrogate-Control": "no-store",
       },
-    });  } catch (error) {
+    });
+    } catch (error) {
     return new Response("Failed to fetch prompts", { status: 500 });
   }
 };
