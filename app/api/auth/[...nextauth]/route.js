@@ -9,11 +9,11 @@ const handler = NextAuth({
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      authorization: {
-        params: {
-          callbackUrl: process.env.GOOGLE_CALLBACK_URL,
-        },
-      },
+      // authorization: {
+      //   params: {
+      //     callbackUrl: process.env.GOOGLE_CALLBACK_URL,
+      //   },
+      // },
     }),
   ],
   callbacks: {
